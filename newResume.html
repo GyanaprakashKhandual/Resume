@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Two-Sided Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            padding: 15px;
+        }
+
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            min-height: 1000px;
+        }
+
+        .svg-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.03;
+        }
+
+        /* Left Side - Sidebar */
+        .left-side {
+            background: linear-gradient(180deg, #f8f9ff 0%, #e8f0ff 50%, #f0f8ff 100%);
+            position: relative;
+            z-index: 2;
+            color: #2c3e50;
+            padding: 40px 30px;
+            overflow: hidden;
+        }
+
+        .left-side::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(102, 126, 234, 0.05) 0%, transparent 50%, rgba(118, 75, 162, 0.03) 100%);
+            z-index: 1;
+        }
+
+        .left-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 2.5em;
+            color: white;
+            border: 3px solid rgba(255,255,255,0.3);
+        }
+
+        .name {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .title {
+            font-size: 0.8em;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .contact-box {
+            background: rgba(102, 126, 234, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 0.7em;
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+        }
+
+        .section-box {
+            background: rgba(102, 126, 234, 0.08);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(102, 126, 234, 0.15);
+            backdrop-filter: blur(5px);
+        }
+
+        .section-title {
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #667eea;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skill-item {
+            margin-bottom: 12px;
+        }
+
+        .skill-name {
+            font-size: 0.7em;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .skill-bar {
+            height: 6px;
+            background: rgba(102, 126, 234, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #f093fb, #f5576c);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 0.7em;
+        }
+
+        .language-level {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.6em;
+        }
+
+        /* Right Side - Main Content */
+        .right-side {
+            position: relative;
+            z-index: 2;
+            padding: 40px 35px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        }
+
+        .header-box {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transform: translate(30px, -30px);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .header-subtitle {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .content-box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e9ecef;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #667eea, #764ba2, #f093fb);
+        }
+
+        .content-title {
+            font-size: 1em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            margin-left: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .experience-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            border-radius: 10px;
+            border-left: 3px solid #667eea;
+            position: relative;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .job-title {
+            font-size: 0.85em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .job-date {
+            font-size: 0.65em;
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+            padding: 3px 8px;
+            border-radius: 12px;
+        }
+
+        .company {
+            font-size: 0.75em;
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+
+        .description {
+            font-size: 0.7em;
+            color: #5a6c7d;
+            line-height: 1.5;
+        }
+
+        .education-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            border-radius: 10px;
+            border-left: 3px solid #9b59b6;
+        }
+
+        .degree {
+            font-size: 0.8em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 3px;
+        }
+
+        .school {
+            font-size: 0.7em;
+            color: #9b59b6;
+            margin-bottom: 3px;
+        }
+
+        .edu-date {
+            font-size: 0.65em;
+            color: #7f8c8d;
+        }
+
+        .achievement-item {
+            margin-bottom: 8px;
+            padding: 8px 12px;
+            background: linear-gradient(135deg, #e8f5e8, #ffffff);
+            border-radius: 8px;
+            border-left: 3px solid #27ae60;
+            font-size: 0.7em;
+            color: #2c3e50;
+        }
+
+        @media (max-width: 768px) {
+            .resume-container {
+                grid-template-columns: 1fr;
+                max-width: 100%;
+            }
+            
+            .left-side {
+                padding: 20px;
+            }
+            
+            .right-side {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- SVG Background with Path Strokes -->
+        <svg class="svg-background" viewBox="0 0 900 1000" xmlns="http://www.w3.org/2000/svg">
+            <!-- Complex geometric path strokes -->
+            <path d="M0,100 Q150,50 300,100 T600,100 L700,200 Q650,250 600,200 T300,200 Z" 
+                  stroke="#667eea" stroke-width="2" fill="none"/>
+            
+            <path d="M100,300 C200,250 300,350 400,300 S600,250 700,300 T900,300" 
+                  stroke="#764ba2" stroke-width="1.5" fill="none"/>
+            
+            <path d="M800,150 L900,250 Q850,300 800,250 L700,350 Q650,300 700,250 Z" 
+                  stroke="#f093fb" stroke-width="1" fill="none"/>
+            
+            <path d="M0,500 Q200,450 400,500 T800,500 L900,600 Q850,650 800,600 T400,600 Z" 
+                  stroke="#667eea" stroke-width="1.5" fill="none"/>
+            
+            <path d="M200,400 C300,350 400,450 500,400 S700,350 800,400 T900,400" 
+                  stroke="#9b59b6" stroke-width="1" fill="none"/>
+            
+            <path d="M50,700 L150,800 Q100,850 50,800 L0,900 Q50,850 100,800 Z" 
+                  stroke="#f5576c" stroke-width="1.5" fill="none"/>
+            
+            <path d="M500,650 Q700,600 900,650" 
+                  stroke="#667eea" stroke-width="1" fill="none"/>
+            
+            <path d="M300,850 C400,800 500,900 600,850 S800,800 900,850" 
+                  stroke="#764ba2" stroke-width="1.5" fill="none"/>
+            
+            <!-- Decorative circles and shapes -->
+            <circle cx="200" cy="200" r="40" stroke="#f093fb" stroke-width="1" fill="none"/>
+            <circle cx="750" cy="400" r="35" stroke="#667eea" stroke-width="1" fill="none"/>
+            <circle cx="150" cy="750" r="25" stroke="#9b59b6" stroke-width="1" fill="none"/>
+            <circle cx="450" cy="300" r="30" stroke="#f5576c" stroke-width="1" fill="none"/>
+            
+            <!-- Wavy patterns -->
+            <path d="M0,250 Q100,200 200,250 Q300,300 400,250 Q500,200 600,250 Q700,300 800,250 Q850,200 900,250" 
+                  stroke="#667eea" stroke-width="0.5" fill="none"/>
+            
+            <path d="M0,750 Q100,700 200,750 Q300,800 400,750 Q500,700 600,750 Q700,800 800,750 Q850,700 900,750" 
+                  stroke="#764ba2" stroke-width="0.5" fill="none"/>
+            
+            <!-- Angular geometric paths -->
+            <path d="M100,50 L200,150 L300,50 L400,150 L500,50 L600,150 L700,50 L800,150" 
+                  stroke="#f093fb" stroke-width="0.8" fill="none"/>
+            
+            <path d="M50,550 L150,650 L250,550 L350,650 L450,550 L550,650 L650,550 L750,650 L850,550" 
+                  stroke="#9b59b6" stroke-width="0.8" fill="none"/>
+        </svg>
+
+        <!-- Left Side - Sidebar -->
+        <div class="left-side">
+            <div class="left-content">
+                <div class="profile-section">
+                    <div class="profile-img">JD</div>
+                    <div class="name">John Doe</div>
+                    <div class="title">Senior Software Engineer</div>
+                </div>
+
+                <div class="contact-box">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <span>john.doe@email.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <span>+1 (555) 123-4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <span>linkedin.com/in/johndoe</span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <span>New York, NY</span>
+                    </div>
+                </div>
+
+                <div class="section-box">
+                    <div class="section-title">Education</div>
+                    <div class="education-item">
+                        <h6 style="font-size: 0.8em; font-weight: bold; color: #2c3e50; margin-bottom: 5px;">Bachelor Of Science</h6>
+                        <p style="font-size: 0.7em; color: #667eea; margin-bottom: 3px;">Hons: Physics</p>
+                        <p style="font-size: 0.65em; color: #7f8c8d; margin-bottom: 15px;">Utkal University • July 2024</p>
+                    </div>
+                    <div class="education-item">
+                        <h6 style="font-size: 0.8em; font-weight: bold; color: #2c3e50; margin-bottom: 5px;">SDET Certification</h6>
+                        <p style="font-size: 0.7em; color: #667eea; margin-bottom: 3px;">QA Engineering</p>
+                        <p style="font-size: 0.65em; color: #7f8c8d; margin-bottom: 15px;">MASAI • January 2025</p>
+                    </div>
+                    <div class="education-item">
+                        <h6 style="font-size: 0.8em; font-weight: bold; color: #2c3e50; margin-bottom: 5px;">Master in Computer Application</h6>
+                        <p style="font-size: 0.7em; color: #667eea; margin-bottom: 3px;">ODL Mode</p>
+                        <p style="font-size: 0.65em; color: #7f8c8d;">IGNOU • Currently Studying</p>
+                    </div>
+                </div>
+
+                <div class="section-box">
+                    <div class="section-title">Technical Skills</div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>JavaScript</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>React</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Node.js</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Python</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>AWS</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-box">
+                    <div class="section-title">Languages</div>
+                    <div class="language-item">
+                        <span>English</span>
+                        <span class="language-level">Native</span>
+                    </div>
+                    <div class="language-item">
+                        <span>Spanish</span>
+                        <span class="language-level">Advanced</span>
+                    </div>
+                    <div class="language-item">
+                        <span>French</span>
+                        <span class="language-level">Basic</span>
+                    </div>
+                </div>
+
+                <div class="section-box">
+                    <div class="section-title">Certifications</div>
+                    <div style="font-size: 0.7em; line-height: 1.4;">
+                        <div style="margin-bottom: 8px;">🏆 AWS Certified Developer</div>
+                        <div style="margin-bottom: 8px;">🏆 Google Cloud Professional</div>
+                        <div style="margin-bottom: 8px;">🏆 React Developer Certification</div>
+                        <div>🏆 Scrum Master Certified</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Main Content -->
+        <div class="right-side">
+            <div class="header-box">
+                <div class="header-content">
+                    <div class="header-title">About Me</div>
+                    <div class="header-subtitle">
+                        Dedicated Quality Assurance Engineer and Full Stack Developer with expertise in comprehensive testing strategies, automation frameworks, and modern development practices. Passionate about delivering high-quality software solutions through innovative testing approaches and continuous learning. Experienced in end-to-end testing, performance optimization, and building robust applications.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-box">
+                <div class="content-title">Professional Experience</div>
+                
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Quality Assurance Analyst</div>
+                            <div class="company">Avidus Interactive</div>
+                        </div>
+                        <div class="job-date">April 2024 - Present</div>
+                    </div>
+                    <div class="description">
+                        <strong>Responsibilities:</strong> Ensuring product quality through comprehensive testing strategies, automation implementation, and performance optimization<br>
+                        <strong>Achievements:</strong> Reduced testing time by 60% using AI-powered automation tools and custom testing frameworks
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-box">
+                <div class="content-title">Key Projects</div>
+                
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">CaffeeTest - Project Management Tool</div>
+                            <div class="company">Development Time: 100 Hours</div>
+                        </div>
+                    </div>
+                    <div class="description">
+                        <strong>Description:</strong> Lightweight version of Jira with enhanced user experience and modern interface<br>
+                        <strong>Tech Stack:</strong> Next JS, Tailwind CSS, Framer Motion, Express JS, MongoDB<br>
+                        <strong>Features:</strong> Task management, team collaboration, progress tracking, and custom reporting
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Pioneers Wine - E-Commerce Testing</div>
+                            <div class="company">Testing Time: 70 Hours</div>
+                        </div>
+                    </div>
+                    <div class="description">
+                        <strong>Scope:</strong> Complete end-to-end testing of e-commerce application including payment flows and inventory management<br>
+                        <strong>Tools Used:</strong> Selenium, K6, Puppeteer, Burp Suite<br>
+                        <strong>Coverage:</strong> Functional, Performance, Security, and User Acceptance Testing
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Orange HRM - HR Management Testing</div>
+                            <div class="company">Testing Time: 70 Hours</div>
+                        </div>
+                    </div>
+                    <div class="description">
+                        <strong>Scope:</strong> Comprehensive testing of HR management system including employee lifecycle and payroll processes<br>
+                        <strong>Tools Used:</strong> Cypress, JMeter, Postman, OWSAP ZAP<br>
+                        <strong>Focus Areas:</strong> API testing, Load testing, Security testing, and Data integrity validation
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-box">
+                <div class="content-title">Key Achievements</div>
+                <div class="achievement-item">
+                    🏆 Led team to win company-wide hackathon in 2023
+                </div>
+                <div class="achievement-item">
+                    📝 Published technical article on microservices architecture
+                </div>
+                <div class="achievement-item">
+                    🎤 Keynote speaker at local tech meetup about React best practices
+                </div>
+                <div class="achievement-item">
+                    🌟 Contributed to 8+ open source projects with 500+ GitHub stars
+                </div>
+                <div class="achievement-item">
+                    📈 Increased team productivity by 35% through process optimization
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
