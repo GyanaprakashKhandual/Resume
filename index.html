@@ -1,465 +1,88 @@
-=<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gyana Prakash Khandual - QA Engineer Resume</title>
+    <!-- Previous head content remains the same until the closing </style> tag -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* Previous styles remain the same */
 
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: linear-gradient(to right, #eff6ff, #ffffff, #faf5ff);
-            padding: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-        }
-
-        main {
-            width: 210mm;
-            height: 297mm;
-            background: white;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            display: grid;
-            grid-template-columns: 320px 1fr;
-            overflow: hidden;
-        }
-
-        /* Left Column */
-        .left-column {
-            background: linear-gradient(to right, #eff6ff, #ffffff, #faf5ff);
-            color: #1f2937;
-            padding: 25px 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .profile-header {
-            text-align: center;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #c7d2fe;
-        }
-
-        .profile-header h1 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
-            color: #1e293b;
-        }
-
-        .profile-header .title {
-            font-size: 12px;
-            background: linear-gradient(135deg, #dbeafe, #e0e7ff);
-            color: #3730a3;
-            padding: 6px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            margin-bottom: 8px;
-        }
-
-        .age-badge {
-            font-size: 11px;
-            background: linear-gradient(135deg, #f3e8ff, #ecfdf5);
-            color: #7c3aed;
-            padding: 4px 10px;
-            border-radius: 12px;
-            display: inline-block;
-        }
-
-        .section-title {
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #4338ca;
-        }
-
-        .contact-item {
+        /* Add this new style for the download button */
+        .download-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            z-index: 1000;
             display: flex;
             align-items: center;
-            margin-bottom: 8px;
-            font-size: 10px;
-            line-height: 1.4;
-            color: #374151;
+            gap: 8px;
+            transition: all 0.3s ease;
         }
 
-        .contact-item .icon {
-            margin-right: 8px;
-            font-size: 12px;
-            width: 16px;
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
         }
 
-        .education-item {
-            background: linear-gradient(to right, #f0f9ff, #fefce8, #f3f4f6);
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 12px;
-            border-left: 3px solid #3b82f6;
-            border: 1px solid #e2e8f0;
-        }
-
-        .education-item h6 {
-            font-size: 12px;
-            margin-bottom: 6px;
-            color: #1d4ed8;
-            font-weight: 600;
-        }
-
-        .education-item p {
-            font-size: 10px;
-            margin-bottom: 3px;
-            color: #4b5563;
-        }
-
-        .skills-container {
-            background: linear-gradient(to right, #fef3c7, #ecfdf5, #f0f9ff);
-            padding: 15px;
-            border-radius: 10px;
-            border: 1px solid #d1d5db;
-        }
-
-        .skill-category {
-            margin-bottom: 12px;
-        }
-
-        .skill-category:last-child {
-            margin-bottom: 0;
-        }
-
-        .skill-label {
-            font-weight: 600;
-            font-size: 10px;
-            color: #059669;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4px;
-        }
-
-        .skill-tag {
-            background: linear-gradient(135deg, #dbeafe, #e0e7ff);
-            color: #3730a3;
-            font-size: 8px;
-            font-weight: 500;
-            padding: 3px 6px;
-            border-radius: 10px;
-            border: 1px solid #c7d2fe;
-            white-space: nowrap;
-            transition: all 0.2s ease;
-        }
-
-        .skill-tag:hover {
-            background: linear-gradient(135deg, #c7d2fe, #ddd6fe);
-            transform: translateY(-1px);
-        }
-
-        /* Right Column */
-        .right-column {
-            padding: 25px 30px;
-            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
-            overflow-y: auto;
-        }
-
-        .about-section {
-            margin-bottom: 20px;
-            padding: 15px;
-            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
-            border-radius: 10px;
-            border-left: 4px solid #0284c7;
-        }
-
-        .about-section p {
-            font-size: 11px;
-            line-height: 1.5;
-            color: #334155;
-            text-align: justify;
-        }
-
-        .section-header {
-            font-size: 16px;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border-bottom: 2px solid #667eea;
-            padding-bottom: 5px;
-        }
-
-        .content-item {
-            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 12px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .project-item {
-            border-left: 4px solid #3b82f6;
-        }
-
-        .experience-item {
-            border-left: 4px solid #10b981;
-        }
-
-        .content-item .title {
-            font-weight: 700;
-            color: #1e293b;
-            font-size: 12px;
-            margin-bottom: 6px;
-        }
-
-        .content-item p {
-            font-size: 10px;
-            margin-bottom: 4px;
-            color: #475569;
-            line-height: 1.4;
-        }
-
-        .content-item p:last-child {
-            margin-bottom: 0;
-        }
-
-        .strengths-section {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            padding: 15px;
-            border-radius: 10px;
-            border-left: 4px solid #f59e0b;
-        }
-
-        .strengths-section ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .strengths-section li {
-            font-size: 10px;
-            margin-bottom: 6px;
-            color: #92400e;
-            line-height: 1.4;
-            position: relative;
-            padding-left: 15px;
-        }
-
-        .strengths-section li:before {
-            content: "▶";
-            position: absolute;
-            left: 0;
-            color: #f59e0b;
-            font-size: 8px;
-        }
-
-        /* Print Styles */
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-            
-            main {
-                box-shadow: none;
-                width: 100%;
-                height: 100vh;
-            }
+        .download-btn:active {
+            transform: translateY(1px);
         }
     </style>
+    <!-- Add html2pdf library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
-    <main>
-        <div class="left-column">
-            <div class="profile-header">
-                <h1>Gyana Prakash Khandual</h1>
-                <div class="title">QA Engineer & Full Stack Developer</div>
-                <div class="age-badge">Age: 21 • Hungry For Work</div>
-            </div>
-            
-            <div>
-                <div class="section-title">Contact</div>
-                <div class="contact-item">
-                    <span class="icon">📞</span>
-                    <span>7606939833</span>
-                </div>
-                <div class="contact-item">
-                    <span class="icon">✉️</span>
-                    <span>gyanaprakashkhnadual@gmail.com</span>
-                </div>
-                <div class="contact-item">
-                    <span class="icon">🌐</span>
-                    <span>https://codewithchris.vercel.app</span>
-                </div>
-            </div>
-            
-            <div>
-                <div class="section-title">Education</div>
-                <div class="education-item">
-                    <h6>Bachelor Of Science</h6>
-                    <p>Hons: Physics</p>
-                    <p>Utkal University • July 2024</p>
-                </div>
-                <div class="education-item">
-                    <h6>SDET Certification</h6>
-                    <p>QA Engineering</p>
-                    <p>MASAI • January 2025</p>
-                </div>
-                <div class="education-item">
-                    <h6>Master in Computer Application</h6>
-                    <p>ODL Mode</p>
-                    <p>IGNOU • Currently Studying</p>
-                </div>
-            </div>
-            
-            <div class="skills-container">
-                <div class="section-title">Core Skills</div>
-                
-                <div class="skill-category">
-                    <div class="skill-label">Test Automation</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Cypress</span>
-                        <span class="skill-tag">Selenium</span>
-                        <span class="skill-tag">Playwright</span>
-                        <span class="skill-tag">Puppeteer</span>
-                        <span class="skill-tag">Appium</span>
-                        <span class="skill-tag">Night JS</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <div class="skill-label">Mobile Testing</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Espresso</span>
-                        <span class="skill-tag">XCUITest</span>
-                        <span class="skill-tag">WinAppDriver</span>
-                        <span class="skill-tag">Air Test</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <div class="skill-label">Frameworks</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">BDD</span>
-                        <span class="skill-tag">Cucumber</span>
-                        <span class="skill-tag">Page Object Model</span>
-                        <span class="skill-tag">Utility Model</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <div class="skill-label">API Testing</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Postman</span>
-                        <span class="skill-tag">Rest Assured</span>
-                        <span class="skill-tag">Tavern</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <div class="skill-label">Performance</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">JMeter</span>
-                        <span class="skill-tag">Gatling</span>
-                        <span class="skill-tag">Load Runner</span>
-                        <span class="skill-tag">Artillery</span>
-                        <span class="skill-tag">Locust</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <div class="skill-label">Security</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Burp Suite</span>
-                        <span class="skill-tag">OWSAP ZAP</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <div class="skill-label">Reporting</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Allure Report</span>
-                        <span class="skill-tag">Extent Report</span>
-                        <span class="skill-tag">Mocha Awesome</span>
-                        <span class="skill-tag">Grafana</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <div class="skill-label">Development</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">React JS</span>
-                        <span class="skill-tag">Next JS</span>
-                        <span class="skill-tag">Node JS</span>
-                        <span class="skill-tag">Express JS</span>
-                        <span class="skill-tag">MongoDB</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Previous body content remains the same until the closing </div> for resume-container -->
+    
+    <!-- Add this download button just before the closing </body> tag -->
+    <button class="download-btn" onclick="downloadResume()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+            <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+        </svg>
+        Download PDF
+    </button>
 
-        <div class="right-column">
-            <div class="about-section">
-                <p>Dedicated Quality Assurance Engineer and Full Stack Developer with expertise in comprehensive testing strategies, automation frameworks, and modern development practices. Passionate about delivering high-quality software solutions through innovative testing approaches and continuous learning. Experienced in end-to-end testing, performance optimization, and building robust applications.</p>
-            </div>
+    <script>
+        function downloadResume() {
+            const element = document.querySelector('.resume-container');
+            const opt = {
+                margin: 10,
+                filename: 'GyanaPrakash_Resume.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            // Show loading state
+            const btn = document.querySelector('.download-btn');
+            btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="spin"><path d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/><path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/></svg> Generating PDF...';
             
-            <div class="section-header">Experience</div>
-            <div class="content-item experience-item">
-                <div class="title">Quality Assurance Analyst • Avidus Interactive</div>
-                <p><strong>Duration:</strong> April 2024 - Present</p>
-                <p><strong>Responsibilities:</strong> Ensuring product quality through comprehensive testing strategies, automation implementation, and performance optimization</p>
-                <p><strong>Achievements:</strong> Reduced testing time by 60% using AI-powered automation tools and custom testing frameworks</p>
-            </div>
-            
-            <div class="section-header">Key Projects</div>
-            
-            <div class="content-item project-item">
-                <div class="title">CaffeeTest - Project Management Tool</div>
-                <p><strong>Development Time:</strong> 100 Hours</p>
-                <p><strong>Description:</strong> Lightweight version of Jira with enhanced user experience and modern interface</p>
-                <p><strong>Tech Stack:</strong> Next JS, Tailwind CSS, Framer Motion, Express JS, MongoDB</p>
-                <p><strong>Features:</strong> Task management, team collaboration, progress tracking, and custom reporting</p>
-            </div>
-            
-            <div class="content-item project-item">
-                <div class="title">Pioneers Wine - E-Commerce Testing</div>
-                <p><strong>Testing Time:</strong> 70 Hours</p>
-                <p><strong>Scope:</strong> Complete end-to-end testing of e-commerce application including payment flows and inventory management</p>
-                <p><strong>Tools Used:</strong> Selenium, K6, Puppeteer, Burp Suite</p>
-                <p><strong>Coverage:</strong> Functional, Performance, Security, and User Acceptance Testing</p>
-            </div>
-            
-            <div class="content-item project-item">
-                <div class="title">Orange HRM - HR Management Testing</div>
-                <p><strong>Testing Time:</strong> 70 Hours</p>
-                <p><strong>Scope:</strong> Comprehensive testing of HR management system including employee lifecycle and payroll processes</p>
-                <p><strong>Tools Used:</strong> Cypress, JMeter, Postman, OWSAP ZAP</p>
-                <p><strong>Focus Areas:</strong> API testing, Load testing, Security testing, and Data integrity validation</p>
-            </div>
-            
-            <div class="section-header">Key Strengths & Differentiators</div>
-            <div class="strengths-section">
-                <ul>
-                    <li>Build custom tech stacks for manual testing processes, increasing efficiency by 40%</li>
-                    <li>Leverage AI to perform API, Load, Stress & Performance Testing in just 3 hours</li>
-                    <li>Prefer AI-assisted automation while maintaining deep understanding of code architecture</li>
-                    <li>Expert in integrating multiple testing tools for comprehensive quality assurance</li>
-                    <li>Proven ability to reduce testing cycles while maintaining 99%+ accuracy rates</li>
-                    <li>Strong advocate for shift-left testing and continuous integration practices</li>
-                </ul>
-            </div>
-        </div>
-    </main>
+            // Generate PDF
+            html2pdf().from(element).set(opt).save().then(() => {
+                // Reset button after completion
+                btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg> Download PDF';
+            });
+        }
+
+        // Add spin animation for the loading icon
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            .spin {
+                animation: spin 1s linear infinite;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
