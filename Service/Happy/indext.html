@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rajpatel Das - Resume</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="download-section">
+      <button class="download-btn" onclick="downloadPDF()">
+        📄 Download Resume as PDF
+      </button>
+    </div>
+
+    <div class="container">
+      <div class="resume" id="resume-content">
+        <div class="header">
+          <h1 class="name">RAJPATEL DAS</h1>
+          <div class="contact-info">
+            Bhubaneswar, Odisha | 📞 +91 9337509036 | ✉ rajdas76676@gmail.com
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Career Objective</h2>
+          <p class="objective">
+            A motivated and detail-oriented professional seeking opportunities
+            to leverage my skills. Committed to delivering excellence and
+            contributing to organizational growth through dedication and
+            innovation.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Educational Qualifications</h2>
+          <table class="education-table">
+            <thead>
+              <tr>
+                <th>Qualification</th>
+                <th>Institution</th>
+                <th>Board/University</th>
+                <th>Year</th>
+                <th>Percentage/CGPA</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>B.Sc. (Physics)</td>
+                <td>Utkal University</td>
+                <td>Utkal University</td>
+                <td>2024</td>
+                <td>6.57 CGPA</td>
+              </tr>
+              <tr>
+                <td>12th Grade</td>
+                <td>N.C. College</td>
+                <td>CHSE</td>
+                <td>2021</td>
+                <td>68%</td>
+              </tr>
+              <tr>
+                <td>10th Grade</td>
+                <td>U.G.N.H. S</td>
+                <td>BSE</td>
+                <td>2019</td>
+                <td>63%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Work Experience</h2>
+
+          <div class="experience-summary">
+            <div class="experience-box">
+              <span class="experience-label">Total Experience:</span>
+              <span class="experience-value">8 Months</span>
+            </div>
+          </div>
+
+          <div class="work-item">
+            <div class="job-title">🔹 WTP DM Plant Operator</div>
+            <div class="company-info">
+              Gaja Engineering Pvt Ltd, Uttar Pradesh | 01 Jan 2025 - Present
+            </div>
+            <ul>
+              <li>
+                Operated WTP & DM units for a consistent purified water supply.
+              </li>
+              <li>
+                Monitored system parameters and maintained quality standards.
+              </li>
+            </ul>
+          </div>
+
+          <div class="work-item">
+            <div class="job-title">🔹 ETP Plant Operator</div>
+            <div class="company-info">
+              Gaja Engineering Pvt Ltd, Uttar Pradesh | 01 Jan 2025 - Present
+            </div>
+            <ul>
+              <li>Handled ETP processes to treat industrial wastewater.</li>
+              <li>
+                Ensured compliance with environmental norms and safety
+                protocols.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Technical Skills</h2>
+          <div class="skills-container">
+            <div class="skill-item">Attention to Detail</div>
+            <div class="skill-item">Microsoft Office Suite</div>
+            <div class="skill-item">Water Treatment Operations</div>
+            <div class="skill-item">Environmental Compliance</div>
+            <div class="skill-item">Quality Control</div>
+            <div class="skill-item">Safety Protocols</div>
+            <div class="skill-item">Data Analysis</div>
+            <div class="skill-item">Process Monitoring</div>
+            <div class="skill-item">Information Gathering</div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Hobbies & Interests</h2>
+          <div class="hobbies-container">
+            <div class="hobby-item">📚 Reading Technical Literature</div>
+            <div class="hobby-item">🏸 Playing Badminton</div>
+            <div class="hobby-item">🎵 Listening to Music</div>
+            <div class="hobby-item">🌱 Environmental Conservation</div>
+            <div class="hobby-item">💻 Technology Updates</div>
+            <div class="hobby-item">🏃‍♂️ Physical Fitness</div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Personal Details</h2>
+          <div class="personal-details">
+            <div class="detail-item">
+              <span class="detail-label">Date of Birth:</span>
+              <span class="detail-value">April 02, 2003</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Gender:</span>
+              <span class="detail-value">Male</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Languages:</span>
+              <span class="detail-value">English, Hindi, Odia</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Nationality:</span>
+              <span class="detail-value">Indian</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="declaration">
+          <strong>DECLARATION</strong><br />
+          I hereby declare that all the information provided above is true to
+          the best of my knowledge and belief.
+        </div>
+
+        <div class="signature-section">
+          <div class="signature-box">
+            <div class="signature-line"></div>
+            <div class="signature-name">Raj Patel Das</div>
+            <div class="signature-label">Candidate Signature</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
