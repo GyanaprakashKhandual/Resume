@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chandana Samal - Resume</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="download-section">
+      <button class="download-btn" onclick="downloadPDF()">
+        📄 Download Resume as PDF
+      </button>
+      <div class="page-info">Optimized for A4 paper (210×297mm)</div>
+    </div>
+
+    <div class="container">
+      <div class="resume" id="resume-content">
+        <!-- Header with Circular Profile -->
+        <div class="header">
+          <div class="profile-circle">C</div>
+          <div class="header-info">
+            <h1 class="name">Chandana Samal</h1>
+            <div class="role">Aviation Professional • Age 22</div>
+            <div class="contact-row">
+              <div class="contact-item">
+                <span class="contact-icon">📞</span>
+                <span>+91 7205179503</span>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon">✉</span>
+                <span>samalchandanaa6@gmail.com</span>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon">📍</span>
+                <span>Bhubaneswar, Odisha</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Three Column Layout -->
+        <div class="main-grid">
+          <!-- Column 1 -->
+          <div class="column column-1">
+            <div class="section">
+              <h2 class="section-title">About Me</h2>
+              <p class="about-text">
+                A science graduate seeking opportunities to gather experience
+                and add value to an organization. With specialized training in
+                air hostess services and strong communication skills, I aim to
+                excel in customer service roles.
+              </p>
+            </div>
+
+            <div class="section">
+              <h2 class="section-title">Skills</h2>
+              <div class="skills-circles">
+                <div class="skill-circle">
+                  <div class="circle-bg"></div>
+                  <div class="skill-name">Communication</div>
+                </div>
+                <div class="skill-circle">
+                  <div class="circle-bg"></div>
+                  <div class="skill-name">Customer Service</div>
+                </div>
+                <div class="skill-circle">
+                  <div class="circle-bg"></div>
+                  <div class="skill-name">Front Office</div>
+                </div>
+                <div class="skill-circle">
+                  <div class="circle-bg"></div>
+                  <div class="skill-name">Hospitality</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="section">
+              <h2 class="section-title">Languages</h2>
+              <div class="language-item">
+                <span class="flag">🇮🇳</span>
+                <div>
+                  <div style="font-weight: 600">Odia</div>
+                  <div style="font-size: 12px; opacity: 0.8">Native</div>
+                </div>
+              </div>
+              <div class="language-item">
+                <span class="flag">🇮🇳</span>
+                <div>
+                  <div style="font-weight: 600">Hindi</div>
+                  <div style="font-size: 12px; opacity: 0.8">Proficient</div>
+                </div>
+              </div>
+              <div class="language-item">
+                <span class="flag">🇺🇸</span>
+                <div>
+                  <div style="font-weight: 600">English</div>
+                  <div style="font-size: 12px; opacity: 0.8">Proficient</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="column column-2">
+            <div class="section">
+              <h2 class="section-title">Education</h2>
+              <div class="education-item">
+                <div class="education-year">2023/24</div>
+                <div class="education-degree">Graduation (Science)</div>
+                <div class="education-institute">Utkal University</div>
+              </div>
+              <div class="education-item">
+                <div class="education-year">2021</div>
+                <div class="education-degree">12th Grade</div>
+                <div class="education-institute">
+                  Council of Higher Secondary Education, Odisha
+                </div>
+              </div>
+              <div class="education-item">
+                <div class="education-year">2019</div>
+                <div class="education-degree">10th Grade</div>
+                <div class="education-institute">
+                  Board of Secondary Education, Odisha
+                </div>
+              </div>
+            </div>
+
+            <div class="section">
+              <h2 class="section-title">Key Strengths</h2>
+              <div class="strength-item">
+                <span class="strength-icon">💬</span>
+                <div class="strength-text">
+                  Excellent communication & interpersonal skills
+                </div>
+              </div>
+              <div class="strength-item">
+                <span class="strength-icon">🤝</span>
+                <div class="strength-text">
+                  Strong customer service & hospitality focus
+                </div>
+              </div>
+              <div class="strength-item">
+                <span class="strength-icon">👔</span>
+                <div class="strength-text">
+                  Professional grooming & confident personality
+                </div>
+              </div>
+              <div class="strength-item">
+                <span class="strength-icon">🧘</span>
+                <div class="strength-text">Adaptable, calm under pressure</div>
+              </div>
+              <div class="strength-item">
+                <span class="strength-icon">🛡️</span>
+                <div class="strength-text">
+                  Safety-conscious & detail-oriented
+                </div>
+              </div>
+              <div class="strength-item">
+                <span class="strength-icon">⚡</span>
+                <div class="strength-text">
+                  Team player with creative problem-solving
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 3 -->
+          <div class="column column-3">
+            <div class="section">
+              <h2 class="section-title">Training</h2>
+              <div class="training-item">
+                <div class="training-title">Air Hostess Training</div>
+                <div class="training-institute">
+                  Frankfinn Aviation Service Private Limited (2023)
+                </div>
+              </div>
+              <div class="training-item">
+                <div class="training-title">Diploma in Computer Science</div>
+                <div class="training-institute">
+                  CSC Education and Training Academy (2022)
+                </div>
+              </div>
+            </div>
+
+            <div class="section">
+              <h2 class="section-title">Personal</h2>
+              <div class="personal-grid">
+                <div class="personal-item">
+                  <span class="personal-label">Father:</span> Mr. Chandrabhanu
+                  Samal
+                </div>
+                <div class="personal-item">
+                  <span class="personal-label">Mother:</span> Mrs. Basanti Samal
+                </div>
+              </div>
+            </div>
+
+            <div class="section">
+              <h2 class="section-title">Hobbies</h2>
+              <div class="hobbies-circle-layout">
+                <div class="hobby-circle" title="Singing">🎤</div>
+                <div class="hobby-circle" title="Dancing">💃</div>
+                <div class="hobby-circle" title="Traveling">✈️</div>
+                <div class="hobby-circle" title="Art & Craft">🎨</div>
+              </div>
+              <div
+                style="text-align: center; font-size: 12px; margin-top: 10px"
+              >
+                Singing • Dancing • Traveling • Art & Craft
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="declaration">
+          <div class="declaration-title">DECLARATION</div>
+          <div class="declaration-text">
+            I hereby declare that all the information provided above is true to
+            the best of my knowledge and belief.
+          </div>
+        </div>
+
+        <div class="signature">
+          <div class="signature-name">Chandanaa Samal</div>
+          <div class="signature-label">Candidate Signature</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
